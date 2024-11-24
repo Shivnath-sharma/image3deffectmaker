@@ -10,11 +10,12 @@ body{
     justify-content: center;
 
 }
-.image{
-    width: 600px;
-    height: 600px;
-    background: rgb(255,255, 255,0.25);
-    margin: 0 20px;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255,0.18);
-}
+    .image{
+        width: 600px;
+        height: 600px;
+        background: rgb(255,255, 255,0.25);
+        margin: 0 20px;
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255,0.18);
+        backdrop-filter: blur(20px);
+    }
