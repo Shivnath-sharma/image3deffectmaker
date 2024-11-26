@@ -3,11 +3,36 @@
     padding: 20;
 }
 body{
-    background: #000000;
+    background-image: url('backgorund2.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+        margin: 0;
+        font-size: 56px;
+        color: #e3e3e3;
+        font-family: "Koulen", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        text-shadow: 0px 0px 0 rgb(203,203,203),
+                      1px 1px 0 rgb(179,179,179),
+                      2px 2px 0 rgb(155,155,155),
+                      3px 3px 0 rgb(131,131,131),
+                      4px 4px 0 rgb(107,107,107),
+                      5px 5px  0 rgb(83,83,83),
+                      6px 6px 5px rgba(0,0,0,0.31),
+                      6px 6px 1px rgba(0,0,0,0.5),
+                      0px 0px 5px rgba(0,0,0,.2);
+    }
 
 }
 .image{
@@ -19,7 +44,7 @@ body{
     border: 1px solid rgba(255, 255, 255,0.18);
           }
     
- /* Button positioned at the top-left */
+ 
 #uploadButton {
     position: absolute;
     top: 10px;
@@ -38,7 +63,7 @@ body{
     background-color: #0056b3;
 }
 
-/* Preview area */
+
 #imagePreview img {
     width: 600px;
     height: 600px;
@@ -47,7 +72,7 @@ body{
     margin-top: 10px;
 }
 
-/* Add basic styles for images */
+
 #imageContainer img {
     cursor: pointer;
     border: 2px solid transparent;
@@ -55,7 +80,7 @@ body{
 }
 
 #imageContainer img.selected {
-    border-color: #01050900; /* Highlight selected image */
+    border-color: #01050900; 
 }
 
 button {
@@ -71,15 +96,15 @@ button {
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
-    padding: 10px;
+    padding: 1px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 1px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #actionButtons button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #3b0ed1;
     border: none;
     color: white;
     font-size: 16px;
