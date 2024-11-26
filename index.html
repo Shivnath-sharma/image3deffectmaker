@@ -3,27 +3,34 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <title>Prince project</title>
+    <title>Image 3D Effect Maker</title>
  </head> 
  <body> 
 
-  <h1>Image 3d Effect Maker </h1>
-
-<div id="imageGallery"></div>
+  <h1 style="text-align: center;">Image 3D Effect Maker</h1>
 
 
-<div id="actionButtons" style="text-align: center; margin-top: 20px;">
-    <button id="increaseSize">Increase Size</button>
-    <button id="decreaseSize">Decrease Size</button>
-    <button id="deletePhoto">Delete Photo</button>
-</div>
+  <div id="imageGallery" style="text-align: center; margin-top: 20px;"></div>
 
 
-<div>
+  <div id="navigationButtons" style="text-align: center; margin-top: 20px;">
+  <button id="prevButton" disabled>Previous</button>
+  <button id="nextButton" disabled>Next</button>
+  </div>
+
+  
+  <div id="actionButtons" style="text-align: center; margin-top: 20px;">
+  <button id="increaseSize">Increase Size</button>
+  <button id="decreaseSize">Decrease Size</button>
+  <button id="deletePhoto">Delete Photo</button>
+  </div>
+
+ 
+  <div style="text-align: center; margin-top: 20px;">
     <button id="uploadButton">Upload Images</button>
     <input type="file" id="fileInput" multiple style="display: none;" />
-</div>
-   
+  </div>
+  
     <script src="vanila-tilt.js"></script>
     <script src="script.js"></script>
   </body>
