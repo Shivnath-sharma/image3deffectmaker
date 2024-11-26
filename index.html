@@ -6,9 +6,23 @@
     <title>Prince project</title>
   </head> 
    <body>
-    <div id="cursor-follow"></div>
-    ><img class="image" class="card-media" src="pp.png"data-tilt data-tilt-galre><div>
+     
+    <div id="imageGallery"></div>
 
+<!-- Buttons for actions -->
+<div id="actionButtons" style="text-align: center; margin-top: 20px;">
+    <button id="increaseSize">Increase Size</button>
+    <button id="decreaseSize">Decrease Size</button>
+    <button id="deletePhoto">Delete Photo</button>
+</div>
+
+<!-- Upload Button -->
+<div>
+    <button id="uploadButton">Upload Images</button>
+    <input type="file" id="fileInput" multiple style="display: none;" />
+</div>
+   
     <script src="vanila-tilt.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -3,21 +3,109 @@
     padding: 20;
 }
 body{
-    background: #0a122b;
+    background: #000000;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 
 }
-    .image{
-        width: 600px;
-        height: 600px;
-        background: rgb(255,255, 255,0.25);
-        margin: 0 20px;
-        border-radius: 5px;
-        border: 1px solid rgba(255, 255, 255,0.18);
+.image{
+    width: 600px;
+    height: 600px;
+    background: rgb(255,255, 255,0.25);
+    margin: 0 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255,0.18);
           }
-    .card-media {
-        filter: drop-shadow(var(--shadow-offset-x, 0px) var(--shadow-offset-y, 0px) 20px rgba(235, 229, 229, 0.792));
-        }
+    
+ /* Button positioned at the top-left */
+#uploadButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#uploadButton:hover {
+    background-color: #0056b3;
+}
+
+/* Preview area */
+#imagePreview img {
+    width: 600px;
+    height: 600px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Add basic styles for images */
+#imageContainer img {
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+#imageContainer img.selected {
+    border-color: #01050900; /* Highlight selected image */
+}
+
+button {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#actionButtons {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#actionButtons button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#actionButtons button:hover {
+    background-color: #45a049;
+}
+
+#imageGallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+
+.image-container {
+    position: relative;
+}
+
+.uploaded-image {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
