@@ -7,7 +7,6 @@ let currentIndex = 0;
 const defaultImageSrc = "default.png"; 
 
 document.addEventListener('DOMContentLoaded', function () {
-    
     const gallery = document.getElementById('imageGallery');
     const defaultImage = createDefaultImage();
     gallery.appendChild(defaultImage);
@@ -17,6 +16,7 @@ document.getElementById('fileInput').addEventListener('change', function (event)
     const files = event.target.files;
     const gallery = document.getElementById('imageGallery');
 
+    // Remove default image if it exists
     const defaultImage = document.getElementById('defaultImage');
     if (defaultImage) {
         gallery.removeChild(defaultImage);
@@ -53,6 +53,9 @@ document.getElementById('fileInput').addEventListener('change', function (event)
             reader.readAsDataURL(file);
         }
     });
+
+    // Reset the file input after file selection to allow re-upload of the same file
+    event.target.value = '';
 });
 
 document.getElementById('nextButton').addEventListener('click', function () {
@@ -76,7 +79,6 @@ function updateImageDisplay() {
     if (images[currentIndex]) {
         images[currentIndex].style.display = 'block';
     } else if (images.length === 0) {
-        
         const defaultImage = createDefaultImage();
         gallery.appendChild(defaultImage);
     }
@@ -86,7 +88,7 @@ function updateImageDisplay() {
 
 function updateNavigationButtons() {
     document.getElementById('prevButton').disabled = currentIndex === 0;
-    document.getElementById('nextButton').disabled = currentIndex === images.length + 1;
+    document.getElementById('nextButton').disabled = currentIndex === images.length - 1;
 }
 
 document.getElementById('increaseSize').addEventListener('click', function () {
@@ -112,36 +114,39 @@ document.getElementById('deletePhoto').addEventListener('click', function () {
 
     const gallery = document.getElementById('imageGallery');
     const imageToRemove = images[currentIndex];
-    
+
+    // Remove image from gallery
     gallery.removeChild(imageToRemove);
     images.splice(currentIndex, 1);
 
-    if (currentIndex >= images.length) {
-        currentIndex = images.length - 1;
-    }
-
+    // If there are still images left, adjust the currentIndex
     if (images.length === 0) {
-        currentIndex = 0;
-       
+        currentIndex = 0;  // Reset to the default image
         const defaultImage = createDefaultImage();
         gallery.appendChild(defaultImage);
-        updateNavigationButtons();
-        return;
+    } else {
+        // Ensure the index is within bounds
+        if (currentIndex >= images.length) {
+            currentIndex = images.length - 1;
+        }
+        updateImageDisplay();
     }
 
-    updateImageDisplay();
+    // Reset the file input to allow re-upload of the same file
+    document.getElementById('fileInput').value = '';
+    
+    updateNavigationButtons();
 });
 
-
+// Function to create and return the default image if no images exist
 function createDefaultImage() {
     const defaultImage = document.createElement('img');
     defaultImage.src = defaultImageSrc;
     defaultImage.alt = "Default Image";
     defaultImage.id = "defaultImage";
-    defaultImage.style.width = "1000px"
-    defaultImage.style.height = "600px" ;
+    defaultImage.style.width = "1000px";
+    defaultImage.style.height = "600px";
 
-    
     VanillaTilt.init(defaultImage, {
         max: 25, 
         speed: 400, 

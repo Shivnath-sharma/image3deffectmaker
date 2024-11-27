@@ -1,13 +1,13 @@
-
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
+/* Body Styling */
 body {
-    background-image: url('background.avif');
+    background-image: url('image.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,9 +15,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column; 
+    flex-direction: column;
+    font-family: Arial, sans-serif;
 }
-
 
 h1 {
     display: flex;
@@ -41,6 +41,8 @@ h1 {
 }
 
 
+ 
+/* Image Gallery */
 #imageGallery {
     display: flex;
     justify-content: center;
@@ -52,81 +54,68 @@ h1 {
     overflow: hidden; 
 }
 
-
-#uploadButton {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+/* Buttons - Reusable Styles */
+button {
+    padding: 10px 15px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    background-color: #000; /* Black background */
+    color: white; /* White text for contrast */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #333; /* Slightly lighter black on hover */
+    transform: translateY(-2px);
+}
+
+/* Upload Button */
+#uploadButton {
+    background-color: #000; /* Black background */
+    color: white;
     position: absolute;
-    top: 10px;
+    top: 50px;
     right: 10px;
+    padding: 15px 25px; 
+    font-size: 18px; 
 }
 
 #uploadButton:hover {
-    background-color: #0056b3;
+    background-color: #333; /* Slightly lighter black on hover */
 }
 
-
-#navigationButtons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
+/* Navigation Buttons */
 #navigationButtons button {
-    padding: 10px 20px;
-    background-color: #3b0ed1;
-    border: none;
+    background-color: #000; /* Black background */
     color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+    padding: 15px 25px; 
+    font-size: 18px; 
 }
 
 #navigationButtons button:hover {
-    background-color: #45a049;
+    background-color: #333; /* Slightly lighter black on hover */
 }
 
-#actionButtons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
+/* Action Buttons */
 #actionButtons button {
-    padding: 10px 20px;
-    background-color: #3b0ed1;
-    border: none;
+    background-color: #000; /* Black background */
     color: white;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
+    padding: 15px 25px; 
+    font-size: 18px; 
 }
 
 #actionButtons button:hover {
-    background-color: #45a049;
+    background-color: #333; /* Slightly lighter black on hover */
 }
 
 
+/* Image Container */
 .image-container {
     position: relative;
 }
-
 
 .uploaded-image {
     width: 100%; 
@@ -135,14 +124,7 @@ h1 {
     transition: transform 0.2s ease;
 }
 
-
-button {
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-
+/* Image Preview */
 #imagePreview img {
     width: 600px;
     height: 600px;
@@ -151,6 +133,7 @@ button {
     margin-top: 10px;
 }
 
+/* Image Selection */
 #imageContainer img {
     cursor: pointer;
     border: 2px solid transparent;
