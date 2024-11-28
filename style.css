@@ -60,7 +60,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    border-radius: 5px;
+    border-radius: 30px;
     border: none;
     background-color: #000;
     color: white; 
@@ -75,6 +75,8 @@ button:hover {
 button:active{
     transform: translateY(-2px);
     box-shadow: none;
+    background-color: white;
+    color: #000;
 }
 
 /* Upload Button */
@@ -86,12 +88,18 @@ button:active{
     right: 10px;
     padding: 15px 25px; 
     font-size: 18px; 
-    border-radius: 30px;
 }
 
 #uploadButton:hover {
     background-color: #333; 
-    border-radius: 30px;
+}
+
+#uploadButton:active{
+    background-color: white;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 25px;
 }
 
 /* Navigation Buttons */
@@ -101,13 +109,21 @@ button:active{
     padding: 15px 25px; 
     font-size: 18px; 
     margin: 2px 2px;
-    border-radius: 30px;
 }
 
 #navigationButtons button:hover {
     background-color: #333; 
-    border-radius: 30px;
 }
+
+#navigationButtons button:active{
+    background-color: white;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 25px; 
+    
+}
+
 
 /* Action Buttons */
 #actionButtons button {
@@ -116,12 +132,18 @@ button:active{
     padding: 15px 25px; 
     font-size: 18px; 
     margin: 2px 2px;
-    border-radius: 30px;
 }
 
 #actionButtons button:hover {
     background-color: #333; 
-    border-radius: 30px;
+}
+
+#actionButtons button:active{
+    background-color: white;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 25px;
 }
 
 
