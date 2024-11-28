@@ -7,7 +7,7 @@
 
 /* Body Styling */
 body {
-    background-image: url('image.png');
+    background-color: gray;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -62,53 +62,66 @@ button {
     font-weight: 600;
     border-radius: 5px;
     border: none;
-    background-color: #000; /* Black background */
-    color: white; /* White text for contrast */
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    background-color: #000;
+    color: white; 
+    transition: background-color 0.3s ease, transform 0.2s ease box-shadow 0.2s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 button:hover {
-    background-color: #333; /* Slightly lighter black on hover */
+    background-color: #333; 
+}
+
+button:active{
     transform: translateY(-2px);
+    box-shadow: none;
 }
 
 /* Upload Button */
 #uploadButton {
-    background-color: #000; /* Black background */
+    background-color: #000; 
     color: white;
     position: absolute;
     top: 50px;
     right: 10px;
     padding: 15px 25px; 
     font-size: 18px; 
+    border-radius: 30px;
 }
 
 #uploadButton:hover {
-    background-color: #333; /* Slightly lighter black on hover */
+    background-color: #333; 
+    border-radius: 30px;
 }
 
 /* Navigation Buttons */
 #navigationButtons button {
-    background-color: #000; /* Black background */
+    background-color: #000; 
     color: white;
     padding: 15px 25px; 
     font-size: 18px; 
+    margin: 2px 2px;
+    border-radius: 30px;
 }
 
 #navigationButtons button:hover {
-    background-color: #333; /* Slightly lighter black on hover */
+    background-color: #333; 
+    border-radius: 30px;
 }
 
 /* Action Buttons */
 #actionButtons button {
-    background-color: #000; /* Black background */
+    background-color: #000;
     color: white;
     padding: 15px 25px; 
     font-size: 18px; 
+    margin: 2px 2px;
+    border-radius: 30px;
 }
 
 #actionButtons button:hover {
-    background-color: #333; /* Slightly lighter black on hover */
+    background-color: #333; 
+    border-radius: 30px;
 }
 
 
