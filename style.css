@@ -7,7 +7,7 @@
 
 /* Body Styling */
 body {
-    background-color: black;
+    background-image: url('mybg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -38,8 +38,7 @@ h1 {
                  5px 5px 0 rgb(83, 83, 83),
                  6px 6px 5px rgba(0, 0, 0, 0.31),
                  6px 6px 1px rgba(0, 0, 0, 0.5),
-                 0px 0px 5px rgba(0, 0, 0, .2),
-                 0 0 10px rgba(255, 255, 255, 0.761);
+                 0px 0px 5px rgba(0, 0, 0, .2);
 }
 
 /* Image Gallery */

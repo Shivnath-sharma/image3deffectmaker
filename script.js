@@ -4,7 +4,7 @@ document.getElementById('uploadButton').addEventListener('click', function () {
 
 let images = []; 
 let currentIndex = 0;
-const defaultImageSrc = "default.png"; 
+const defaultImageSrc = "defaultmoon1.png"; 
 
 document.addEventListener('DOMContentLoaded', function () {
     const gallery = document.getElementById('imageGallery');
