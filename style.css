@@ -7,7 +7,7 @@
 
 /* Body Styling */
 body {
-    background-color: gray;
+    background-color: black;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    font-family: Arial, sans-serif;
+    font-family: "montserrat", serif;
 }
 
 h1 {
@@ -24,8 +24,9 @@ h1 {
     justify-content: center;
     align-items: flex-start;
     font-size: 56px;
+    width: 500px;
     color: #e3e3e3;
-    font-family: "Koulen", sans-serif;
+    font-family: "montserrat", serif;
     font-weight: 400;
     text-align: center;
     margin: 20px 0;
@@ -37,11 +38,10 @@ h1 {
                  5px 5px 0 rgb(83, 83, 83),
                  6px 6px 5px rgba(0, 0, 0, 0.31),
                  6px 6px 1px rgba(0, 0, 0, 0.5),
-                 0px 0px 5px rgba(0, 0, 0, .2);
+                 0px 0px 5px rgba(0, 0, 0, .2),
+                 0 0 10px rgba(255, 255, 255, 0.761);
 }
 
-
- 
 /* Image Gallery */
 #imageGallery {
     display: flex;
@@ -56,42 +56,42 @@ h1 {
 
 /* Buttons - Reusable Styles */
 button {
-    padding: 10px 15px;
-    cursor: pointer;
+    padding: 12px 20px;
     font-size: 16px;
-    font-weight: 600;
-    border-radius: 30px;
+    font-weight: bold;
+    border-radius: 25px;
     border: none;
-    background-color: #000;
-    color: white; 
-    transition: background-color 0.3s ease, transform 0.2s ease box-shadow 0.2s ease;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    background-color: #000; /* Button background */
+    color: white; /* Button text color */
+    cursor: pointer; /* Pointer cursor */
+    text-transform: uppercase; /* Uppercase text */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Glow effect */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #333; 
+    background-color: black; /* Hover background color */
+    color: white; /* Hover text color */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.761); /* Stronger glow on hover */
 }
 
-button:active{
-    transform: translateY(-2px);
+button:active {
+    transform: translateY(2px);/* Simulate press effect */
     box-shadow: none;
     background-color: white;
     color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px; 
 }
 
 /* Upload Button */
 #uploadButton {
-    background-color: #000; 
-    color: white;
     position: absolute;
-    top: 50px;
+    top: 30px;
     right: 10px;
-    padding: 15px 25px; 
     font-size: 18px; 
-}
-
-#uploadButton:hover {
-    background-color: #333; 
+    padding: 15px 25px; 
 }
 
 #uploadButton:active{
@@ -104,48 +104,13 @@ button:active{
 
 /* Navigation Buttons */
 #navigationButtons button {
-    background-color: #000; 
-    color: white;
-    padding: 15px 25px; 
-    font-size: 18px; 
-    margin: 2px 2px;
+    margin: 2px 6px;
 }
-
-#navigationButtons button:hover {
-    background-color: #333; 
-}
-
-#navigationButtons button:active{
-    background-color: white;
-    color: #000;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 15px 25px; 
-    
-}
-
 
 /* Action Buttons */
 #actionButtons button {
-    background-color: #000;
-    color: white;
-    padding: 15px 25px; 
-    font-size: 18px; 
-    margin: 2px 2px;
+    margin: 2px 2px 10px 2px;
 }
-
-#actionButtons button:hover {
-    background-color: #333; 
-}
-
-#actionButtons button:active{
-    background-color: white;
-    color: #000;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 15px 25px;
-}
-
 
 /* Image Container */
 .image-container {
