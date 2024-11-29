@@ -4,7 +4,8 @@ document.getElementById('uploadButton').addEventListener('click', function () {
 
 let images = []; 
 let currentIndex = 0;
-const defaultImageSrc = "defaultmoon1.png"; 
+const defaultImageSrc = "default4.png"
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const gallery = document.getElementById('imageGallery');
@@ -144,7 +145,7 @@ function createDefaultImage() {
     defaultImage.src = defaultImageSrc;
     defaultImage.alt = "Default Image";
     defaultImage.id = "defaultImage";
-    defaultImage.style.width = "1000px";
+    defaultImage.style.width = "600px";
     defaultImage.style.height = "600px";
 
     VanillaTilt.init(defaultImage, {
