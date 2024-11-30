@@ -2,60 +2,65 @@ document.getElementById('uploadButton').addEventListener('click', function () {
     document.getElementById('fileInput').click();
 });
 
-let images = []; 
+let images = [];
 let currentIndex = 0;
-const defaultImageSrc = "default4.png"
+const defaultImageSrc = "default4.png";
 
+
+const validFileTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 
 document.addEventListener('DOMContentLoaded', function () {
     const gallery = document.getElementById('imageGallery');
     const defaultImage = createDefaultImage();
     gallery.appendChild(defaultImage);
+    updateNavigationButtons();
 });
 
 document.getElementById('fileInput').addEventListener('change', function (event) {
-    const files = event.target.files;
+    const files = Array.from(event.target.files);
     const gallery = document.getElementById('imageGallery');
 
     // Remove default image if it exists
     const defaultImage = document.getElementById('defaultImage');
-    if (defaultImage) {
-        gallery.removeChild(defaultImage);
-    }
+    if (defaultImage) gallery.removeChild(defaultImage);
 
-    Array.from(files).forEach((file, index) => {
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.alt = `Uploaded Image ${index + 1}`;
-                img.classList.add('uploaded-image');
-                img.style.width = "200px";
-                img.style.display = "none";
-
-                images.push(img);
-
-                VanillaTilt.init(img, {
-                    max: 25, 
-                    speed: 400, 
-                    glare: true, 
-                    "max-glare": 0.6 
-                });
-
-                gallery.appendChild(img);
-
-                if (images.length === 1) {
-                    img.style.display = "block";
-                    currentIndex = 0;
-                    updateNavigationButtons();
-                }
-            };
-            reader.readAsDataURL(file);
+    files.forEach((file, index) => {
+        if (!validFileTypes.includes(file.type)) {
+            alert("Unsupported file type. Please upload a valid image.");
+            return;
         }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.alt = `Uploaded Image ${index + 1}`;
+            img.classList.add('uploaded-image');
+            img.style.width = "200px";
+            img.style.display = "none";
+
+            images.push(img);
+
+            VanillaTilt.init(img, {
+                max: 25,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.6
+            });
+
+            gallery.appendChild(img);
+
+            if (images.length === 1) {
+                img.style.display = "block";
+                currentIndex = 0;
+            }
+
+            updateNavigationButtons();
+        };
+        reader.readAsDataURL(file);
     });
 
-    // Reset the file input after file selection to allow re-upload of the same file
+    // Reset the file input after file selection
     event.target.value = '';
 });
 
@@ -88,8 +93,9 @@ function updateImageDisplay() {
 }
 
 function updateNavigationButtons() {
-    document.getElementById('prevButton').disabled = currentIndex === 0;
-    document.getElementById('nextButton').disabled = currentIndex === images.length - 1;
+    const hasMultipleImages = images.length > 1;
+    document.getElementById('prevButton').disabled = currentIndex === 0 || !hasMultipleImages;
+    document.getElementById('nextButton').disabled = currentIndex === images.length - 1 || !hasMultipleImages;
 }
 
 document.getElementById('increaseSize').addEventListener('click', function () {
@@ -102,9 +108,17 @@ document.getElementById('decreaseSize').addEventListener('click', function () {
 
 function adjustImageSize(scaleFactor) {
     const activeImage = images[currentIndex];
+    const minWidth = 50; // Minimum width in pixels
+    const maxWidth = 1000; // Maximum width in pixels
+
     if (activeImage) {
         const currentWidth = activeImage.offsetWidth;
-        activeImage.style.width = `${currentWidth * scaleFactor}px`;
+        const newWidth = currentWidth * scaleFactor;
+        if (newWidth < minWidth || newWidth > maxWidth) {
+            alert("Image size limit reached.");
+            return;
+        }
+        activeImage.style.width = `${newWidth}px`;
     } else {
         alert('No image to adjust size.');
     }
@@ -116,44 +130,38 @@ document.getElementById('deletePhoto').addEventListener('click', function () {
     const gallery = document.getElementById('imageGallery');
     const imageToRemove = images[currentIndex];
 
-    // Remove image from gallery
     gallery.removeChild(imageToRemove);
     images.splice(currentIndex, 1);
 
-    // If there are still images left, adjust the currentIndex
     if (images.length === 0) {
-        currentIndex = 0;  // Reset to the default image
+        currentIndex = 0;
         const defaultImage = createDefaultImage();
         gallery.appendChild(defaultImage);
     } else {
-        // Ensure the index is within bounds
-        if (currentIndex >= images.length) {
-            currentIndex = images.length - 1;
-        }
+        currentIndex = Math.min(currentIndex, images.length - 1);
         updateImageDisplay();
     }
 
-    // Reset the file input to allow re-upload of the same file
-    document.getElementById('fileInput').value = '';
-    
     updateNavigationButtons();
 });
 
-// Function to create and return the default image if no images exist
 function createDefaultImage() {
     const defaultImage = document.createElement('img');
     defaultImage.src = defaultImageSrc;
     defaultImage.alt = "Default Image";
     defaultImage.id = "defaultImage";
-    defaultImage.style.width = "600px";
-    defaultImage.style.height = "600px";
+    defaultImage.style.width = "100%";
+    defaultImage.style.maxWidth = "600px";
+    defaultImage.style.height = "auto";
 
     VanillaTilt.init(defaultImage, {
-        max: 25, 
-        speed: 400, 
-        glare: true, 
-        "max-glare": 0.6 
+        max: 25,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.6
     });
 
     return defaultImage;
 }
+
+
