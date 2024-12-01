@@ -153,6 +153,7 @@ function createDefaultImage() {
     defaultImage.style.width = "100%";
     defaultImage.style.maxWidth = "600px";
     defaultImage.style.height = "auto";
+    defaultImage.classList.add('default-image-shadow');
 
     VanillaTilt.init(defaultImage, {
         max: 25,

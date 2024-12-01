@@ -19,6 +19,9 @@ body {
     font-family: "montserrat", serif;
 }
 
+.default-image-shadow {
+     filter: drop-shadow(2px 5px 20px rgba(255, 255, 255, 0.341));
+}
 
 h1 {
     display: flex;
